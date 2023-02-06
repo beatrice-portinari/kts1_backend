@@ -5,9 +5,11 @@ __all__ = (
 )
 
 
-def corresponding_pairs(arr1: list[Any], arr2: list[Any]) -> list[tuple[Any, Any]]:
-    """
-    Функция должна возвращать соответствующие элементы двух массивов:
-    corresponding_pairs([1, 2], [3, 4]) == [(1, 3), (2, 4)]
-    """
-    raise NotImplementedError
+def corresponding_pairs(i, items):
+    res = []
+    for n, x in enumerate(i):
+        try:
+            res.append((x, items[n]))
+        except IndexError:
+            break
+    return res
