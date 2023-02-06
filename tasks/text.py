@@ -5,9 +5,16 @@ __all__ = (
 )
 
 
-def find_shortest_longest_word(text: str) -> tuple[Optional[str], Optional[str]]:
-    """
-    В переданном тексте вернуть слово имеющее наименьшую и наибольшую длину.
-    Если такого слова нет - вернуть None
-    """
-    raise NotImplementedError
+import re
+
+def find_shortest_longest_word(sentence):
+
+    str_lst = re.sub(r'[(\t|\s|,|\n)]', ' ', sentence).split()
+
+    if not str_lst:
+        return (None, None)
+
+    shortest = min(str_lst, key=len)
+    longest = max(str_lst, key=len)
+
+    return (shortest, longest)
